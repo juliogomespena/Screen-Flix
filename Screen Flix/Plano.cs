@@ -1,4 +1,4 @@
-﻿/*10. Informações do Plano
+﻿/*2. Informações do Plano
 //Nome do plano(ex.: Básico, Premium, Família)
 //Descrição do plano(detalhes sobre o que está incluído)
 //Nível do plano(diferentes níveis ou camadas, ex.: gratuito, intermediário, avançado)
@@ -13,14 +13,6 @@
 
 class Plano
 {
-    public string Nome { get; }
-    public string Descricao { get; }
-    public int Nivel { get; }
-    private Dictionary<string, double> Preco { get; }
-    public double precoFinal;
-
-    public string InformacoesDoPlano => $"Nome do Plano: {Nome}\nDescrição: {Descricao}\nNível: {Nivel}\nPreço: {string.Join(" - ", Preco.Select(x => $"{x.Key}: R$ {x.Value.ToString("F2")}"))}\n\n";
-
     public Plano(string nome, string descricao, int nivel, Dictionary<string, double> preco)
     {
         Nome = nome;
@@ -29,6 +21,13 @@ class Plano
         Preco = preco;
         precoFinal = 0;
     }
+    public string Nome { get; }
+    public string Descricao { get; }
+    public int Nivel { get; }
+    private Dictionary<string, double> Preco { get; }
+    public double precoFinal;
+
+    public string InformacoesDoPlano => $"Nome do Plano: {Nome}\nDescrição: {Descricao}\nNível: {Nivel}\nPreço: {string.Join(" - ", Preco.Select(x => $"{x.Key}: R$ {x.Value.ToString("F2")}"))}\n";
 
     public double ObterPrecoFinal(string periodo)
     {

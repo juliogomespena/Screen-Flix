@@ -23,5 +23,7 @@
 //Data de início da assinatura
 //Data de renovação
 //Status da assinatura (ativa, expirada, cancelada, em teste)
-//Histórico de pagamentos (datas e valores das cobranças anteriores)
-//Preferências do assinante (ex.: notificações por email, idioma)*/
+
+/*4. Biblioteca de filmes
+//Lista de filmes disponíveis
+//Usuário que faz requisição
