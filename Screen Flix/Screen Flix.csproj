@@ -9,11 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Modelos de dados.cs" />
+    <Compile Remove="Modelo de dados.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Modelos de dados.cs" />
+    <None Include="Modelo de dados.cs" />
   </ItemGroup>
 
 </Project>
