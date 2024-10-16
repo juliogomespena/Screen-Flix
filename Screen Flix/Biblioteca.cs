@@ -18,10 +18,10 @@
         }
         else
         {
-            Console.WriteLine($"Filmes disponíveis para o plano { Usuario.PlanoUsuario.Nome}:\n");
+            Console.WriteLine($"Filmes disponíveis para o plano {Usuario.PlanoUsuario.Nome}:\n");
             foreach (Filme filme in Filmes)
             {
-                if (filme.DisponivelNoPlano.Contains(Usuario.PlanoUsuario.Nivel))
+                if (filme.DisponivelNoPlano.Any(plano => plano.ToUpper() == Usuario.PlanoUsuario.Nome.ToUpper()))
                 {
                     Console.WriteLine(filme.InformacoesFilme);
                 }

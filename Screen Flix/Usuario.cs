@@ -40,6 +40,8 @@ class Usuario
     public string TipoAssinatura { get; set; }
     public string StatusAssinatura { get; set; }
     public Plano PlanoUsuario { get; set; }
+    public double PrecoFinal => PlanoUsuario.ObterPrecoFinal(this);
 
-    public string InformacoesUsuario => $"ID do Usuário: {UserID}\nNome: {Nome}\nEmail: {Email}\nEndereço: {Endereco}\nMétodo de Pagamento: {MetodoPagamento}\nData de Início da Assinatura: {DataInicioAssinatura}\nData de Renovação: {DataRenovacao}\nStatus da Assinatura: {StatusAssinatura}\nPlano: {PlanoUsuario.Nome}\n";
+    public string InformacoesUsuario => $"ID do Usuário: {UserID}\nNome: {Nome}\nEmail: {Email}\nEndereço: {Endereco}\nMétodo de Pagamento: {MetodoPagamento}\nData de Início da Assinatura: {DataInicioAssinatura}\nData de Renovação: {DataRenovacao}\nValor da assinatura: {PrecoFinal.ToString("F2")}\nStatus da Assinatura: {StatusAssinatura}\nPlano: {PlanoUsuario.Nome}\n";
+
 }

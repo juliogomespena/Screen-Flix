@@ -13,27 +13,25 @@
 
 class Plano
 {
-    public Plano(string nome, string descricao, int nivel, Dictionary<string, double> preco)
+    public Plano(string nome, string descricao, Dictionary<string, double> preco)
     {
         Nome = nome;
         Descricao = descricao;
-        Nivel = nivel;
         Preco = preco;
         precoFinal = 0;
     }
     public string Nome { get; }
     public string Descricao { get; }
-    public int Nivel { get; }
     private Dictionary<string, double> Preco { get; }
     public double precoFinal;
 
-    public string InformacoesDoPlano => $"Nome do Plano: {Nome}\nDescrição: {Descricao}\nNível: {Nivel}\nPreço: {string.Join(" - ", Preco.Select(x => $"{x.Key}: R$ {x.Value.ToString("F2")}"))}\n";
+    public string InformacoesDoPlano => $"Nome do Plano: {Nome}\nDescrição: {Descricao}\nPreço: {string.Join(" - ", Preco.Select(x => $"{x.Key}: R$ {x.Value.ToString("F2")}"))}\n";
 
-    public double ObterPrecoFinal(string periodo)
+    public double ObterPrecoFinal(Usuario usuario)
     {
-        if (Preco.ContainsKey(periodo))
+        if (Preco.ContainsKey(usuario.TipoAssinatura))
         {
-            precoFinal = Preco[periodo];
+            precoFinal = Preco[usuario.TipoAssinatura];
         }
         return precoFinal;
     }

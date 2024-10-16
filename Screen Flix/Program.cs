@@ -6,28 +6,28 @@ List <Usuario> usuarios = new List<Usuario>();
 //Instanciando 3 filmes
 Filme piratasDoCaribe01 = new Filme(new List<string> { "Pirates of the Caribbean: The Curse of the Black Pearl", "Piratas do Caribe: A Maldição do Pérola Negra" }, 2003, new List<string> { "Ação", "Aventura", "Fantasia" }, 12, 143);
 piratasDoCaribe01.AdicionarSinopse("O pirata Jack Sparrow tem seu navio roubado pelo capitão Barbossa e sua tripulação de piratas amaldiçoados. Ele então se une a Will Turner para resgatar a filha do governador e recuperar seu navio.");
-piratasDoCaribe01.AdicionarDisponibilidadeNoPlano(1);
-piratasDoCaribe01.AdicionarDisponibilidadeNoPlano(2);
-piratasDoCaribe01.AdicionarDisponibilidadeNoPlano(3);
+piratasDoCaribe01.AdicionarDisponibilidadeNoPlano("Free");
+piratasDoCaribe01.AdicionarDisponibilidadeNoPlano("Silver");
+piratasDoCaribe01.AdicionarDisponibilidadeNoPlano("Gold");
 filmes.Add(piratasDoCaribe01);
 
 Filme piratasDoCaribe02 = new Filme(new List<string> { "Pirates of the Caribbean: Dead Man's Chest", "Piratas do Caribe: O Baú da Morte" }, 2006, new List<string> { "Ação", "Aventura", "Fantasia" }, 12, 151);
 piratasDoCaribe02.AdicionarSinopse("O capitão Jack Sparrow deve encontrar o coração de Davy Jones para evitar que ele se torne escravo do temível pirata. Enquanto isso, Will Turner e Elizabeth Swann são presos por ajudar Jack.");
-piratasDoCaribe02.AdicionarDisponibilidadeNoPlano(2);
-piratasDoCaribe02.AdicionarDisponibilidadeNoPlano(3);
+piratasDoCaribe02.AdicionarDisponibilidadeNoPlano("Silver");
+piratasDoCaribe02.AdicionarDisponibilidadeNoPlano("Gold");
 filmes.Add(piratasDoCaribe02);
 
 Filme piratasDoCaribe03 = new Filme(new List<string> { "Pirates of the Caribbean: At World's End", "Piratas do Caribe: No Fim do Mundo" }, 2007, new List<string> { "Ação", "Aventura", "Fantasia" }, 12, 169);
 piratasDoCaribe03.AdicionarSinopse("O capitão Jack Sparrow, Will Turner e Elizabeth Swann se unem para enfrentar o temível Lorde Cutler Beckett e Davy Jones, o capitão do navio fantasma.");
-piratasDoCaribe03.AdicionarDisponibilidadeNoPlano(3);
+piratasDoCaribe03.AdicionarDisponibilidadeNoPlano("Gold");
 filmes.Add(piratasDoCaribe03);
 
 //Instanciando 3 planos
-Plano Gold = new Plano("Gold", "Plano com todos filmes incluídos", 3, new Dictionary<string, double> { { "Mensal", 29.90 }, { "Anual", 299.90 } });
+Plano Gold = new Plano("Gold", "Plano com todos filmes incluídos", new Dictionary<string, double> { { "Mensal", 29.90 }, { "Anual", 299.90 } });
 planos.Add(Gold);
-Plano Silver = new Plano("Silver", "Plano com filmes sujeitos a disponibilidade", 2, new Dictionary<string, double> { { "Mensal", 19.90 }, { "Anual", 199.90 } });
+Plano Silver = new Plano("Silver", "Plano com filmes sujeitos a disponibilidade", new Dictionary<string, double> { { "Mensal", 19.90 }, { "Anual", 199.90 } });
 planos.Add(Silver);
-Plano Free = new Plano("Free", "Plano com filmes sujeitos a disponibilidade", 1, new Dictionary<string, double> { { "Mensal", 0.00 }, { "Anual", 0.00 } });
+Plano Free = new Plano("Free", "Plano com filmes sujeitos a disponibilidade", new Dictionary<string, double> { { "Mensal", 0.00 }, { "Anual", 0.00 } });
 planos.Add(Free);
 
 //Instanciando 4 usuários
@@ -42,20 +42,30 @@ Biblioteca biblioteca2 = new Biblioteca(filmes, user02);
 Biblioteca biblioteca3 = new Biblioteca(filmes, user03);
 Biblioteca biblioteca4 = new Biblioteca(filmes, user04);
 
-
+//Exibiçao de todos filmes e planos
 Console.WriteLine("Todos filmes (sujeito a disponibilidade de local e plano):\n");
 foreach (Filme filme in filmes)
 {
     Console.WriteLine(filme.InformacoesFilme);
 }
-
+Console.WriteLine();
 Console.WriteLine("Todos planos disponíveis: ");
 foreach (Plano plano in planos)
 {
     Console.WriteLine(plano.InformacoesDoPlano);
 }
+
 Console.WriteLine("\n\n");
+Console.WriteLine("***************************************************************8");
+Console.WriteLine("\n\n");
+
+//Exibição de informações de usuário e valor de acordo com tipo de assinatura
+//Exibiçao de biblioteca de filmes de acordo com plano do usuário
+Console.WriteLine(user01.InformacoesUsuario);
 biblioteca1.FilmesDisponiveis();
+Console.WriteLine(user02.InformacoesUsuario);
 biblioteca2.FilmesDisponiveis();
+Console.WriteLine(user03.InformacoesUsuario);
 biblioteca3.FilmesDisponiveis();
+Console.WriteLine(user04.InformacoesUsuario);
 biblioteca4.FilmesDisponiveis();

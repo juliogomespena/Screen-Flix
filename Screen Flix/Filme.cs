@@ -16,7 +16,7 @@ class Filme
         Generos = generos;
         ClassificacaoIndicativa = classificacaoIndicativa;
         Duracao = duracao;
-        DisponivelNoPlano = new List<int>();
+        DisponivelNoPlano = new List<string>();
         Sinopse = "";
     }
     public List<string> Titulo { get; }
@@ -25,7 +25,7 @@ class Filme
     public string Sinopse { get; set; }
     public int ClassificacaoIndicativa { get; }
     public int Duracao { get; }
-    public List<int> DisponivelNoPlano { get; set; }
+    public List<string> DisponivelNoPlano { get; set; }
     
     public string InformacoesFilme => $"Título: {string.Join(" - ", Titulo)}\nAno de Lançamento: {AnoLancamento}\nGênero(s): {string.Join(", ", Generos)}\nSinopse: {Sinopse}\nClassificação Indicativa: {ClassificacaoIndicativa}\nDuração: {Duracao} minutos\nDisponível no(s) plano(s): {string.Join(" - ", DisponivelNoPlano)}\n";
 
@@ -33,7 +33,7 @@ class Filme
     {
         Sinopse = sinopse;
     }
-    public void AdicionarDisponibilidadeNoPlano(int plano)
+    public void AdicionarDisponibilidadeNoPlano(string plano)
     {
         DisponivelNoPlano.Add(plano);
     }

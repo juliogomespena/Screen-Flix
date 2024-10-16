@@ -22,6 +22,7 @@
 //Método de pagamento (ex.: cartão de crédito, PayPal, boleto)
 //Data de início da assinatura
 //Data de renovação
+//Tipo de assinatura (mensal, anual)
 //Status da assinatura (ativa, expirada, cancelada, em teste)
 
 /*4. Biblioteca de filmes
